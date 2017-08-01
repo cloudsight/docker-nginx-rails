@@ -1,7 +1,7 @@
 LOCAL_NAME=docker-nginx-rails
 VERSION=latest
 PUBLIC_NAME=docker-nginx-rails
-REPOSITORY=bfolkens
+REPOSITORY=mccallumjack
 
 
 .PHONY: all build tag release

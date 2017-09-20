@@ -1,18 +1,19 @@
-LOCAL_NAME=docker-nginx-rails
 VERSION=latest
-PUBLIC_NAME=docker-nginx-rails
-REPOSITORY=mccallumjack
-
+NAME=docker-nginx-rails
+REPOSITORY=cloudsight
 
 .PHONY: all build tag release
 
 all: build
 
 build:
-	docker build -t $(LOCAL_NAME):$(VERSION) --rm .
+	docker build -t $(NAME):$(VERSION) --rm .
 
 tag: build
-	docker tag $(LOCAL_NAME):$(VERSION) $(REPOSITORY)/$(PUBLIC_NAME):$(VERSION)
+	docker tag $(NAME):$(VERSION) $(REPOSITORY)/$(NAME):$(VERSION)
 
 release: tag
-	docker push $(REPOSITORY)/$(PUBLIC_NAME):$(VERSION)
+	docker push $(REPOSITORY)/$(NAME):$(VERSION)
+
+run:
+	docker run --rm -it $(NAME):$(VERSION)
